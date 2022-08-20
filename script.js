@@ -6,6 +6,7 @@ const themeToggler = document.querySelectorAll(".theme-toggler")
 const icon = document.querySelectorAll(".icon")
 const sun = document.querySelector(".bi-brightness-low")
 const moon = document.querySelector(".bi-moon")
+
 moon.style.display = "none"
 
 function darkTheme() {
