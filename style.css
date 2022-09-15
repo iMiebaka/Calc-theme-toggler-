@@ -21,15 +21,9 @@
 .theme-toggler {
   display: flex;
   justify-content: center;
-  background-color: #2c2d37;
-  border-radius: 50%;
+  background: none;
   margin: 10px auto;
   width: 50px;
-}
-
-.theme-toggler> span {
-  padding: 5px;
-  height: auto;
 }
 
 .output {
@@ -42,7 +36,7 @@
   margin-bottom: 15px;
 }
 
-.num{
+.num {
   color: #fcfcfc;
 }
 

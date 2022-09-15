@@ -123,7 +123,7 @@ function lightTheme() {
   });
 
   themeToggler.forEach(element => {
-    element.style.background = "#f9f9f9";
+    element.style.background = null;
   })
 
   icon.forEach(element => {
@@ -156,7 +156,7 @@ function darkTheme() {
   });
 
   themeToggler.forEach(element => {
-    element.style.background = "#2c2d37";
+    element.style.background = null;
   });
 
   icon.forEach(element => {
