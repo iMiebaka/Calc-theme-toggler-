@@ -80,8 +80,6 @@ function darkTheme() {
 function toggleTheme() {
   if (themeState) {
     lightTheme()
-    // themeStateLight = true
-    // darkTheme()
     themeState = !themeState
     let data = JSON.stringify(themeState)
     localStorage.setItem('themeState', data)
@@ -89,8 +87,6 @@ function toggleTheme() {
 
   else {
     darkTheme()
-    // lightTheme()
-    // themeStateLight = false
     themeState = !themeState
     let data = JSON.stringify(themeState)
     localStorage.setItem('themeState', data)
