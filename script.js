@@ -15,7 +15,6 @@ if (localStorage.getItem('themeState') == null) {
 } else {
   themeState = JSON.parse(localStorage.getItem("themeState"))
 }
-console.log(themeState)
 
 function lightTheme() {
   calcContainer.forEach(element => {
