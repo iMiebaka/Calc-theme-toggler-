@@ -1,1 +1,1 @@
-[Open Cacluator](https://muzzammmill.github.io/Calc-theme-toggler-/)
+[Open Cacluator](https://just-Muzz.github.io/Calc-theme-toggler-/)
