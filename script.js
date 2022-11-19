@@ -1,11 +1,12 @@
 const calcContainer = document.querySelectorAll(".calc-container");
-const btns = document.querySelectorAll(".btns");
-const num = document.querySelectorAll(".num");
-const button = document.querySelectorAll("button");
-const themeToggler = document.querySelectorAll(".theme-toggler")
-const icon = document.querySelectorAll(".icon")
+const numpad = document.querySelectorAll(".numpad");
+const num = document.querySelectorAll(".numpad button");
+const themeToggler = document.querySelector(".theme-toggler")
 const sun = document.querySelector(".bi-brightness-low")
 const moon = document.querySelector(".bi-moon")
+const exp = document.querySelector('.user-input')
+const answer = document.querySelector('.ans')
+const display = document.querySelector('.output')
 
 moon.style.display = "none"
 let themeState = true;
@@ -20,26 +21,16 @@ function lightTheme() {
   calcContainer.forEach(element => {
     element.style.background = "#ffffff";
   });
-  btns.forEach(element => {
+  numpad.forEach(element => {
     element.style.background = "#f9f9f9";
   });
 
   num.forEach(element => {
     element.style.color = "#2b2a31";
-  });
-
-  button.forEach(element => {
     element.style.background = "#f6f6f6";
   });
 
-  themeToggler.forEach(element => {
-    element.style.background = null;
-  })
-
-  icon.forEach(element => {
-    element.style.fill = "black";
-  })
-
+  display.style.color = "#2b2a31";
   moon.style.display = "block"
   sun.style.display = "none"
 }
@@ -52,29 +43,20 @@ function darkTheme() {
   });
 
 
-  btns.forEach(element => {
+  numpad.forEach(element => {
     element.style.background = "#292d36";
   });
 
   num.forEach(element => {
     element.style.color = "#fcfcfc";
-  });
-
-  button.forEach(element => {
     element.style.background = "#2C2d37";
   });
 
-  themeToggler.forEach(element => {
-    element.style.background = null;
-  });
-
-  icon.forEach(element => {
-    element.style.fill = "white";
-  });
-
+  display.style.color = "#fcfcfc";
   moon.style.display = "none"
   sun.style.display = "block"
 }
+
 
 function toggleTheme() {
   if (themeState) {
@@ -97,4 +79,36 @@ if (themeState) {
 } else {
   lightTheme()
 }
-document.querySelector(".theme-toggler").addEventListener("click", toggleTheme)
+
+num.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    if (btn.className === '') {
+      exp.innerText += btn.innerHTML
+    }
+
+    if (btn.classList.contains('operator')) {
+      if (btn.classList.contains('square')) {
+        exp.innerText += ' ** 2'
+      } else if (btn.classList.contains('pi')) {
+        answer.innerText += +eval(exp.innerText * Math.PI).toFixed(5)
+      } else {
+        exp.innerText += btn.innerHTML
+      }
+    }
+
+    if (btn.classList.contains('equal')) {
+      try {
+        answer.innerText = eval(exp.innerText)
+      } catch (e) {
+        answer.innerText = 'Syntax error'
+      }
+    }
+
+    if (btn.classList.contains('delete')) {
+      answer.innerText = ''
+      exp.innerText = exp.innerText.slice(0, -1)
+    }
+  })
+})
+
+themeToggler.addEventListener("click", toggleTheme)
